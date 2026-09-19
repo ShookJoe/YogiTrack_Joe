@@ -1,0 +1,20 @@
+{
+  "name": "yogitrack",
+  "version": "1.0.0",
+  "private": true,
+  "description": "YogiTrack - MERN stack yoga tracking application",
+  "engines": {
+    "node": "24.x"
+  },
+  "scripts": {
+    "dev": "concurrently -n server,client -c blue,green \"cross-env PORT=5000 npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "install:all": "npm install --prefix server && npm install --prefix client",
+    "build": "npm run build --prefix client",
+    "heroku-postbuild": "npm run install:all && npm run build",
+    "start": "npm start --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "cross-env": "^10.1.0"
+  }
+}
