@@ -21,14 +21,12 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
-// Gate everything (API + static UI) behind Basic Auth in production;
-// see middleware/basicAuth.js for why this is a no-op locally.
-app.use(basicAuth);
 
-app.use("/api/health", healthRouter);
-app.use("/api/instructors", instructorsRouter);
-app.use("/api/customers", customersRouter);
-app.use("/api/classes", classesRouter);
+
+app.use("/api/health", basicAuth, healthRouter);
+app.use("/api/instructors", basicAuth, instructorsRouter);
+app.use("/api/customers", basicAuth, customersRouter);
+app.use("/api/classes", basicAuth, classesRouter);
 
 // In production there's no separate Vite dev server, so Express serves
 // the client's built files directly and falls back to index.html for
