@@ -11,12 +11,12 @@ const REQUIRED_FIELDS = ["firstName", "lastName", "address", "phone", "email", "
 export function createPersonRouter({ Model, idField, prefix, counterName, label }) {
   const router = Router();
 
-  router.get("/", async (req, res) => {
+  async function list(req, res) {
     const records = await Model.find().sort({ createdAt: -1 });
     res.json(records);
-  });
+  }
 
-  router.post("/", async (req, res) => {
+  async function create(req, res) {
     const { firstName, lastName, confirmDuplicate } = req.body;
 
     if (!firstName || !lastName) {
@@ -67,7 +67,10 @@ export function createPersonRouter({ Model, idField, prefix, counterName, label 
     } catch (err) {
       res.status(400).json({ error: err.message });
     }
-  });
+  }
+
+  router.get("/", list);
+  router.post("/", create);
 
   return router;
 }

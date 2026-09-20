@@ -49,12 +49,12 @@ async function suggestSlots(day, time) {
   return suggestions;
 }
 
-router.get("/", async (req, res) => {
+async function list(req, res) {
   const classes = await ClassModel.find().sort({ day: 1, time: 1 });
   res.json(classes);
-});
+}
 
-router.post("/", async (req, res) => {
+async function create(req, res) {
   const { instructorId, day, time, classType, payRate } = req.body;
 
   const missing = ["instructorId", "day", "time", "classType", "payRate"].filter(
@@ -94,6 +94,9 @@ router.post("/", async (req, res) => {
   } catch (err) {
     res.status(400).json({ error: err.message });
   }
-});
+}
+
+router.get("/", list);
+router.post("/", create);
 
 export default router;
