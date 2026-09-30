@@ -3,6 +3,7 @@ import './App.css'
 import InstructorsPage from './pages/InstructorsPage'
 import CustomersPage from './pages/CustomersPage'
 import ClassesPage from './pages/ClassesPage'
+import PackagesPage from './pages/PackagesPage'
 import Login from './components/Login'
 import { checkAuth, clearStoredAuth } from './auth'
 
@@ -46,6 +47,9 @@ function App() {
           <button className={tab === 'classes' ? 'active' : ''} onClick={() => setTab('classes')}>
             Classes
           </button>
+          <button className={tab === 'packages' ? 'active' : ''} onClick={() => setTab('packages')}>
+            Packages
+          </button>
           {authStatus === 'ok' && <button onClick={logOut}>Log out</button>}
         </nav>
       </header>
@@ -53,6 +57,7 @@ function App() {
         {tab === 'instructors' && <InstructorsPage />}
         {tab === 'customers' && <CustomersPage />}
         {tab === 'classes' && <ClassesPage />}
+        {tab === 'packages' && <PackagesPage />}
       </main>
     </div>
   )

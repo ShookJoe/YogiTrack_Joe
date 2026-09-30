@@ -11,6 +11,7 @@ import healthRouter from "./routes/health.js";
 import instructorsRouter from "./routes/instructors.js";
 import customersRouter from "./routes/customers.js";
 import classesRouter from "./routes/classes.js";
+import packagesRouter from "./routes/packages.js";
 import { basicAuth } from "./middleware/basicAuth.js";
 
 dotenv.config();
@@ -27,6 +28,7 @@ app.use("/api/health", basicAuth, healthRouter);
 app.use("/api/instructors", basicAuth, instructorsRouter);
 app.use("/api/customers", basicAuth, customersRouter);
 app.use("/api/classes", basicAuth, classesRouter);
+app.use("/api/packages", basicAuth, packagesRouter);
 
 // In production there's no separate Vite dev server, so Express serves
 // the client's built files directly and falls back to index.html for
