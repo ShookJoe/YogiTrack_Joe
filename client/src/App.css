@@ -1,7 +1,11 @@
+/* White panel so the text stays readable over the background picture */
 .app {
   max-width: 760px;
-  margin: 0 auto;
-  padding: 32px 20px 64px;
+  margin: 32px auto;
+  padding: 32px 28px 48px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
   text-align: left;
 }
 
@@ -207,4 +211,93 @@ nav button:last-child {
 .login-card button[type='submit'] {
   align-self: stretch;
   text-align: center;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.add-row {
+  display: flex;
+  gap: 8px;
+}
+
+.add-row select {
+  flex: 1;
+}
+
+.btn-secondary {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+  font: inherit;
+  cursor: pointer;
+}
+
+.attendee-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.attendee-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-h);
+}
+
+.notice ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.report-section h3 {
+  font-size: 15px;
+  margin: 20px 0 8px;
+  color: var(--text-h);
+}
+
+.report-section:first-of-type h3 {
+  margin-top: 0;
+}
+
+.report-note {
+  margin-bottom: 16px;
+}
+
+.total-row td {
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.report-total {
+  margin-top: 20px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.status {
+  font-weight: 600;
+}
+
+.status-active {
+  color: #245c34;
+}
+
+.status-future {
+  color: #7a5b00;
+}
+
+.status-expired {
+  color: var(--text-muted);
 }

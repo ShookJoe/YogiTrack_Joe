@@ -11,8 +11,8 @@ const EMPTY_FORM = {
   payRate: '',
 }
 
-// Add-class form for Use Case 2. `instructors` populates the dropdown
-// (passed in from ClassesPage, which fetches it) so a class can only
+// Add-class form. `instructors` populates the dropdown
+// passed in from ClassesPage, which fetches it so a class can only
 // be scheduled for an instructor that already exists.
 function ClassForm({ instructors, onCreated }) {
   const [form, setForm] = useState(EMPTY_FORM)
@@ -65,7 +65,7 @@ function ClassForm({ instructors, onCreated }) {
       <h2>Add class</h2>
       <form onSubmit={handleSubmit}>
         <label>
-          Instructor
+          Instructor *
           <select value={form.instructorId} onChange={(e) => updateField('instructorId', e.target.value)} required>
             <option value="" disabled>
               Select an instructor
@@ -78,7 +78,7 @@ function ClassForm({ instructors, onCreated }) {
           </select>
         </label>
         <label>
-          Day
+          Day *
           <select value={form.day} onChange={(e) => updateField('day', e.target.value)}>
             {DAYS.map((day) => (
               <option key={day} value={day}>
@@ -88,18 +88,18 @@ function ClassForm({ instructors, onCreated }) {
           </select>
         </label>
         <label>
-          Time
+          Time *
           <input type="time" value={form.time} onChange={(e) => updateField('time', e.target.value)} required />
         </label>
         <label>
-          Class type
+          Class type *
           <select value={form.classType} onChange={(e) => updateField('classType', e.target.value)}>
             <option value="General">General</option>
             <option value="Special">Special</option>
           </select>
         </label>
         <label>
-          Pay rate ($)
+          Pay rate ($) *
           <input
             type="number"
             min="0"
@@ -109,6 +109,7 @@ function ClassForm({ instructors, onCreated }) {
             required
           />
         </label>
+        <p className="empty-state">* Required field</p>
         <button type="submit" disabled={submitting || instructors.length === 0}>
           Save class
         </button>

@@ -49,18 +49,18 @@ function PackageForm({ onCreated }) {
       <h2>Add package</h2>
       <form onSubmit={handleSubmit}>
         <label>
-          Package name
+          Package name *
           <input value={form.packageName} onChange={(e) => updateField('packageName', e.target.value)} required />
         </label>
         <label>
-          Package category
+          Package category *
           <select value={form.packageCategory} onChange={(e) => updateField('packageCategory', e.target.value)}>
             <option value="General">General</option>
             <option value="Senior">Senior</option>
           </select>
         </label>
         <label>
-          Number of classes
+          Number of classes *
           <select value={form.numClasses} onChange={(e) => updateField('numClasses', e.target.value)}>
             <option value="1">1</option>
             <option value="4">4</option>
@@ -69,22 +69,22 @@ function PackageForm({ onCreated }) {
           </select>
         </label>
         <label>
-          Class type
+          Class type *
           <select value={form.classType} onChange={(e) => updateField('classType', e.target.value)}>
             <option value="General">General</option>
             <option value="Special">Special</option>
           </select>
         </label>
         <label>
-          Start date
+          Start date *
           <input type="date" value={form.startDate} onChange={(e) => updateField('startDate', e.target.value)} required />
         </label>
         <label>
-          End date
+          End date *
           <input type="date" value={form.endDate} onChange={(e) => updateField('endDate', e.target.value)} required />
         </label>
         <label>
-          Price ($)
+          Price ($) *
           <input
             type="number"
             min="0"
@@ -94,6 +94,7 @@ function PackageForm({ onCreated }) {
             required
           />
         </label>
+        <p className="empty-state">* Required field</p>
         <button type="submit" disabled={submitting}>
           Save package
         </button>

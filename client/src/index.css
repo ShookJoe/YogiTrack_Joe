@@ -22,6 +22,7 @@
 
 body{
   margin: 0;
+  background: #dbe5ec url('./assets/background.jpg') center / cover fixed no-repeat;
 }
 
 #root{

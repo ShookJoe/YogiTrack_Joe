@@ -23,7 +23,7 @@ function PersonForm({ label, apiPath, onCreated }) {
   }
 
   // Called twice for a duplicate name: once with confirmDuplicate=false
-  // (the normal submit), and again with true if the manager confirms
+  // the normal submit, and again with true if the manager confirms
   // the "Yes, this is a different person" prompt.
   async function submit(confirmDuplicate) {
     setSubmitting(true)
@@ -58,32 +58,33 @@ function PersonForm({ label, apiPath, onCreated }) {
       <h2>Add {label}</h2>
       <form onSubmit={handleSubmit}>
         <label>
-          First name
+          First name *
           <input value={form.firstName} onChange={(e) => updateField('firstName', e.target.value)} required />
         </label>
         <label>
-          Last name
+          Last name *
           <input value={form.lastName} onChange={(e) => updateField('lastName', e.target.value)} required />
         </label>
         <label>
-          Address
+          Address *
           <input value={form.address} onChange={(e) => updateField('address', e.target.value)} required />
         </label>
         <label>
-          Phone
+          Phone *
           <input value={form.phone} onChange={(e) => updateField('phone', e.target.value)} required />
         </label>
         <label>
-          Email
+          Email *
           <input type="email" value={form.email} onChange={(e) => updateField('email', e.target.value)} required />
         </label>
         <label>
-          Preferred contact
+          Preferred contact *
           <select value={form.preferredContact} onChange={(e) => updateField('preferredContact', e.target.value)}>
             <option value="email">Email</option>
             <option value="phone">Phone</option>
           </select>
         </label>
+        <p className="empty-state">* Required field</p>
         <button type="submit" disabled={submitting}>
           Save {label}
         </button>

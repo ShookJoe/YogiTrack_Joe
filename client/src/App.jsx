@@ -4,6 +4,9 @@ import InstructorsPage from './pages/InstructorsPage'
 import CustomersPage from './pages/CustomersPage'
 import ClassesPage from './pages/ClassesPage'
 import PackagesPage from './pages/PackagesPage'
+import SalesPage from './pages/SalesPage'
+import AttendancePage from './pages/AttendancePage'
+import ReportsPage from './pages/ReportsPage'
 import Login from './components/Login'
 import { checkAuth, clearStoredAuth } from './auth'
 
@@ -50,6 +53,15 @@ function App() {
           <button className={tab === 'packages' ? 'active' : ''} onClick={() => setTab('packages')}>
             Packages
           </button>
+          <button className={tab === 'sales' ? 'active' : ''} onClick={() => setTab('sales')}>
+            Sales
+          </button>
+          <button className={tab === 'attendance' ? 'active' : ''} onClick={() => setTab('attendance')}>
+            Attendance
+          </button>
+          <button className={tab === 'reports' ? 'active' : ''} onClick={() => setTab('reports')}>
+            Reports
+          </button>
           {authStatus === 'ok' && <button onClick={logOut}>Log out</button>}
         </nav>
       </header>
@@ -58,6 +70,9 @@ function App() {
         {tab === 'customers' && <CustomersPage />}
         {tab === 'classes' && <ClassesPage />}
         {tab === 'packages' && <PackagesPage />}
+        {tab === 'sales' && <SalesPage />}
+        {tab === 'attendance' && <AttendancePage />}
+        {tab === 'reports' && <ReportsPage />}
       </main>
     </div>
   )

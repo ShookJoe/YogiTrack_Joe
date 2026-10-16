@@ -12,6 +12,9 @@ import instructorsRouter from "./routes/instructors.js";
 import customersRouter from "./routes/customers.js";
 import classesRouter from "./routes/classes.js";
 import packagesRouter from "./routes/packages.js";
+import salesRouter from "./routes/sales.js";
+import attendanceRouter from "./routes/attendance.js";
+import reportsRouter from "./routes/reports.js";
 import { basicAuth } from "./middleware/basicAuth.js";
 
 dotenv.config();
@@ -29,6 +32,9 @@ app.use("/api/instructors", basicAuth, instructorsRouter);
 app.use("/api/customers", basicAuth, customersRouter);
 app.use("/api/classes", basicAuth, classesRouter);
 app.use("/api/packages", basicAuth, packagesRouter);
+app.use("/api/sales", basicAuth, salesRouter);
+app.use("/api/attendance", basicAuth, attendanceRouter);
+app.use("/api/reports", basicAuth, reportsRouter);
 
 // In production there's no separate Vite dev server, so Express serves
 // the client's built files directly and falls back to index.html for
